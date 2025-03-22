@@ -1,53 +1,53 @@
 import { clienteService } from '../service/cliente-service.js'
 
-const criaNovaLinha = (nome, email, id) => {
-    const linhaNovoCliente = document.createElement('tr')
-    const conteudo = `
-      <td class="td" data-td>${nome}</td>
+const crearNuevaLinea = (nombre, email, id) => {
+  const lineaNuevoCliente = document.createElement('tr')
+  const contenido = `
+      <td class="td" data-td>${nombre}</td>
                   <td>${email}</td>
                   <td>
-                      <ul class="tabela__botoes-controle">
-                          <li><a href="../vistas/edita_cliente.html?id=${id}" class="botao-simples botao-simples--editar">Editar</a></li>
-                          <li><button class="botao-simples botao-simples--excluir" type="button">Eliminar</button></li>
+                      <ul class="tabla__botoes-controle">
+                          <li><a href="../vistas/edita_cliente.html?id=${id}" class="boton-simple boton-simple--editar">Editar</a></li>
+                          <li><button class="boton-simple boton-simple--excluir" type="button">Eliminar</button></li>
                       </ul>
-                  </td> 
+                  </td>
                   `
-    linhaNovoCliente.innerHTML = conteudo
-    linhaNovoCliente.dataset.id = id
-    return linhaNovoCliente
+  lineaNuevoCliente.innerHTML = contenido
+  lineaNuevoCliente.dataset.id = id
+  return lineaNuevoCliente
 }
 
 
-const tabela = document.querySelector('[data-tabela]')
+const tabla = document.querySelector('[data-tabla]')
 
-tabela.addEventListener('click', async (evento) => {
-    let ehBotaoDeDeleta = evento.target.className === 'botao-simples botao-simples--excluir'
-    if (ehBotaoDeDeleta) {
-        try {
-            const linhaCliente = evento.target.closest('[data-id]')
-            let id = linhaCliente.dataset.id
-            await clienteService.removeCliente(id)
-            linhaCliente.remove()
-        }
-        catch (erro) {
-            console.log(erro)
-            window.location.href = "../vistas/erro.html"
-        }
+tabla.addEventListener('click', async (evento) => {
+  let esBotonEliminar = evento.target.className === 'boton-simple boton-simple--excluir'
+  if (esBotonEliminar) {
+    try {
+      const lineaCliente = evento.target.closest('[data-id]')
+      let id = lineaCliente.dataset.id
+      await clienteService.removeCliente(id)
+      lineaCliente.remove()
     }
+    catch (error) {
+      console.log(error)
+      window.location.href = "../vistas/error.html"
+    }
+  }
 })
 
 
 const render = async () => {
-    try {
-        const listaClientes = await clienteService.listaClientes()
-        listaClientes.forEach(elemento => {
-            tabela.appendChild(criaNovaLinha(elemento.nombre, elemento.email, elemento.id))
-        })
-    }
-    catch (erro) {
-        console.log(erro)
-        window.location.href = "../vistas/erro.html"
-    }
+  try {
+    const listaClientes = await clienteService.listaClientes()
+    listaClientes.forEach(elemento => {
+      tabla.appendChild(crearNuevaLinea(elemento.nombre, elemento.email, elemento.id))
+    })
+  }
+  catch (error) {
+    console.log(error)
+    window.location.href = "../vistas/error.html"
+  }
 
 }
 

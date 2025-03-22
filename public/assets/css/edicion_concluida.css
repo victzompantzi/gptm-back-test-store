@@ -1,0 +1,22 @@
+.registro-tarjeta {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.registro-tarjeta__icono-concluido {
+  display: block;
+  width: 3.5rem;
+  height: 3.5rem;
+
+  margin-bottom: 1rem;
+
+  background-image: url(../img/checkmark.svg);
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+
+.registro-tarjeta__titulo {
+  max-width: 20rem;
+}
