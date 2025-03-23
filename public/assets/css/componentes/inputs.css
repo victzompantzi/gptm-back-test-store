@@ -41,14 +41,14 @@
   left: 0.5rem;
   font-size: var(--fonte-tamanho-input-label);
 
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
-.input:not(:placeholder-shown)+.input-label,
-.input:focus+.input-label {
+.input:not(:placeholder-shown) + .input-label,
+.input:focus + .input-label {
   font-size: 0.875rem;
   top: 0.25rem;
-  transition: all .25s;
+  transition: all 0.25s;
 }
 
 .input-container--invalido {
@@ -107,8 +107,8 @@
   transition: all 0.25s;
 }
 
-.textarea:not(:placeholder-shown)+.textarea-label,
-.textarea:focus+.textarea-label {
+.textarea:not(:placeholder-shown) + .textarea-label,
+.textarea:focus + .textarea-label {
   font-size: 0.875rem;
   top: -1.25rem;
   transition: all 0.25s;

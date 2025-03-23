@@ -1,50 +1,79 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Vicomm Shop | Registro de cliente</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="../assets/css/base/base.css">
-    <link rel="stylesheet" href="../assets/css/componentes/cabecera.css">
-    <link rel="stylesheet" href="../assets/css/componentes/tarjeta.css">
-    <link rel="stylesheet" href="../assets/css/registro_cliente.css">
-    <link rel="stylesheet" href="../assets/css/componentes/inputs.css">
-    <link rel="stylesheet" href="../assets/css/componentes/boton.css">
-</head>
-<body>
-  <header class="cabecera container">
-    <img src="../assets/img/doguitoadm.svg" alt="Logotipo Doguito" class="cabecera__logo">
-    <nav>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/cabecera.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/tarjeta.css" />
+    <link rel="stylesheet" href="../assets/css/registro_cliente.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/inputs.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/boton.css" />
+  </head>
+  <body>
+    <header class="cabecera container">
+      <img
+        src="../assets/img/doguitoadm.svg"
+        alt="Logotipo Doguito"
+        class="cabecera__logo"
+      />
+      <nav>
         <ul class="cabecera__lista-navegacao">
-            <li class="cabecera__link"><a href="/vistas/productos.html">Carrito</a></li>
-            <li class="cabecera__link"><a href="#">Perfil</a></li>
+          <li class="cabecera__link">
+            <a href="/vistas/productos.html">Carrito</a>
+          </li>
+          <li class="cabecera__link"><a href="#">Perfil</a></li>
         </ul>
-    </nav>
-</header>
+      </nav>
+    </header>
     <main class="container flex flex--centro flex--coluna">
-        <section class="tarjeta registro">
-            <h1 class="tarjeta__titulo">Agregar producto</h1>
-            <form class="flex flex--coluna" data-form>
-                <div class="input-container">
-                    <input name="nombre" id="nombre" class="input" type="text" placeholder="Nombre" required data-nombre>
-                    <label class="input-label" for="nombre">Nombre</label>
-                    <span class="input-mensagem-error">Campo requerido</span>
-                </div>
-                <div class="input-container">
-                    <input name="precio" id="precio" class="input" type="number" placeholder="Precio" step="0.01" min="0" required data-precio>
-                    <label class="input-label" for="price" >Precio</label>
-                    <span class="input-mensagem-error">Campo requerido</span>
-                </div>
-                <button type="submit"class="boton">
-                Agregar
-            </button>
-            </form>
-        </section>
+      <section class="tarjeta registro">
+        <h1 class="tarjeta__titulo">Agregar producto</h1>
+        <form class="flex flex--coluna" data-form>
+          <div class="input-container">
+            <input
+              name="nombre"
+              id="nombre"
+              class="input"
+              type="text"
+              placeholder="Nombre"
+              required
+              data-nombre
+            />
+            <label class="input-label" for="nombre">Nombre</label>
+            <span class="input-mensagem-error">Campo requerido</span>
+          </div>
+          <div class="input-container">
+            <input
+              name="precio"
+              id="precio"
+              class="input"
+              type="number"
+              placeholder="Precio"
+              step="0.01"
+              min="0"
+              required
+              data-precio
+            />
+            <label class="input-label" for="price">Precio</label>
+            <span class="input-mensagem-error">Campo requerido</span>
+          </div>
+          <button type="submit" class="boton">Agregar</button>
+        </form>
+      </section>
     </main>
-    <script type="module" src="../controller/registrarProductos-controller.js"></script>
-</body>
-
-
+    <script
+      type="module"
+      src="../controller/registrarProductos-controller.js"
+    ></script>
+  </body>
 </html>

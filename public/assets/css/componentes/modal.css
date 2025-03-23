@@ -54,5 +54,5 @@
 
 .modal--fechado {
   left: -100vw;
-  transition: .25s;
+  transition: 0.25s;
 }
