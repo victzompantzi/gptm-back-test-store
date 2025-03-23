@@ -7,8 +7,8 @@ const cors = require('cors');
 const logger = require('morgan');
 
 const indexRouter = require('./routes/index');
-const clientesRouter = require('./routes/clientes');
-const ClienteService = require('./services/cliente-service');
+const productosRouter = require('./routes/productos');
+const productosService = require('./services/productos-service');
 
 const app = express();
 
@@ -25,7 +25,7 @@ app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
-app.use('/clientes', clientesRouter);
+app.use('/productos', productosRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
@@ -43,12 +43,12 @@ app.use((err, req, res) => {
   res.render('error');
 });
 
-ClienteService.init().then((clienteService) => {
-  app.set('clienteService', clienteService);
+productosService.init().then((productosService) => {
+  app.set('productosService', productosService);
 });
 
 process.on('exit', () => {
-  app.get('clienteService').closePool();
+  app.get('productosService').closePool();
 });
 
 module.exports = app;

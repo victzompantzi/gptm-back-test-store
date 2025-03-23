@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vicomm Shop | Productos</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../assets/css/base/base.css">
+    <link rel="stylesheet" href="../assets/css/componentes/cabecera.css">
+    <link rel="stylesheet" href="../assets/css/productos.css">
+    <link rel="stylesheet" href="../assets/css/componentes/tabla.css">
+    <link rel="stylesheet" href="../assets/css/componentes/boton.css">
+    <link rel="stylesheet" href="../assets/css/componentes/modal.css">
+</head>
+<body>
+  <header class="cabecera container">
+      <img src="../assets/img/doguitoadm.svg" alt="Logotipo Doguito" class="cabecera__logo">
+      <nav>
+          <ul class="cabecera__lista-navegacao">
+              <li class="cabecera__link"><a href="/vistas/productos.html">Carrito</a></li>
+              <li class="cabecera__link"><a href="#">Perfil</a></li>
+          </ul>
+      </nav>
+  </header>
+
+  <main class="productos-container">
+      <table class="tabla">
+          <thead>
+              <tr>
+                  <th class="tabla__coluna--p">Nombre</th>
+                  <th class="tabla__coluna--g">Precio</th>
+                  <th class="tabla__coluna--m tabla__alinhamento--direita"><a href="./nuevo.html"
+                          class="boton-simple boton-simple--adicionar">Agregar Producto</a></th>
+              </tr>
+          </thead>
+          <tbody data-tabla>
+
+          </tbody>
+      </table>
+      <div class="modal-container modal--fechado">
+          <article class="modal">
+              <h2 class="modal__titulo">
+                  Eliminar
+              </h2>
+              <button class="modal__fechar">X</button>
+              <p class="modal__texto">Seguro?</p>
+              <div class="modal__boton-container">
+                  <button class="modal__boton modal__boton--confirmar">Eliminar</button>
+                  <button class="modal__boton">Cancelar</button>
+              </div>
+          </article>
+      </div>
+  </main>
+  <script type="module" src="../controller/listarProductos-controller.js"></script>
+</body>
+
+
+</html>

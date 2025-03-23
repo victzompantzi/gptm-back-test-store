@@ -14,20 +14,18 @@
     <link rel="stylesheet" href="../assets/css/componentes/boton.css">
 </head>
 <body>
-    <header class="cabecera container">
-        <img src="../assets/img/doguitoadm.svg" alt="Logo Doguito" class="cabecera__logo">
-        <nav>
-            <ul class="cabecera__lista-navegacao">
-                <li class="cabecera__link"><a href="#">Dashboard</a></li>
-                <li class="cabecera__link"><a href="#">Productos</a></li>
-                <li class="cabecera__link"><a href="lista_cliente.html">Clientes </a></li>
-                <li class="cabecera__link"><a href="#">Pets</a></li>
-            </ul>
-        </nav>
-    </header>
+  <header class="cabecera container">
+    <img src="../assets/img/doguitoadm.svg" alt="Logotipo Doguito" class="cabecera__logo">
+    <nav>
+        <ul class="cabecera__lista-navegacao">
+            <li class="cabecera__link"><a href="/vistas/productos.html">Carrito</a></li>
+            <li class="cabecera__link"><a href="#">Perfil</a></li>
+        </ul>
+    </nav>
+</header>
     <main class="container flex flex--centro flex--coluna">
         <section class="tarjeta registro">
-            <h1 class="tarjeta__titulo">Nuevo Cliente</h1>
+            <h1 class="tarjeta__titulo">Agregar producto</h1>
             <form class="flex flex--coluna" data-form>
                 <div class="input-container">
                     <input name="nombre" id="nombre" class="input" type="text" placeholder="Nombre" required data-nombre>
@@ -35,17 +33,17 @@
                     <span class="input-mensagem-error">Campo requerido</span>
                 </div>
                 <div class="input-container">
-                    <input name="email" id="email" class="input" type="text" placeholder="Email" required data-email>
-                    <label class="input-label" for="email" >Email</label>
+                    <input name="precio" id="precio" class="input" type="number" placeholder="Precio" step="0.01" min="0" required data-precio>
+                    <label class="input-label" for="price" >Precio</label>
                     <span class="input-mensagem-error">Campo requerido</span>
                 </div>
                 <button type="submit"class="boton">
-                Registrar
+                Agregar
             </button>
             </form>
         </section>
     </main>
-    <script type="module" src="../controller/registroClientes-controller.js"></script>
+    <script type="module" src="../controller/registrarProductos-controller.js"></script>
 </body>
 
 

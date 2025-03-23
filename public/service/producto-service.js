@@ -1,6 +1,6 @@
-const BASE_PATH = '/clientes'
+const BASE_PATH = '/productos'
 
-const listaClientes = () => {
+const listarProductos = () => {
   return fetch(`${BASE_PATH}`)
     .then(resposta => {
       if (resposta.ok) {
@@ -10,15 +10,15 @@ const listaClientes = () => {
     })
 }
 
-const criaCliente = (nombre, email) => {
+const crearProductos = (producto, precio) => {
   return fetch(`${BASE_PATH}`, {
     method: 'POST',
     headers: {
       'Content-Type': 'application/json'
     },
     body: JSON.stringify({
-      nombre: nombre,
-      email: email
+      producto: producto,
+      precio: precio
     })
   })
     .then(resposta => {
@@ -29,7 +29,7 @@ const criaCliente = (nombre, email) => {
     })
 }
 
-const removeCliente = (id) => {
+const eliminarProductos = (id) => {
   return fetch(`${BASE_PATH}/${id}`, {
     method: 'DELETE'
   })
@@ -51,15 +51,15 @@ const detalhaCliente = (id) => {
     })
 }
 
-const actualizaClientes = (id, nombre, email) => {
+const actualizarProductos = (id, producto, precio) => {
   return fetch(`${BASE_PATH}/${id}`, {
     method: 'PUT',
     headers: {
       'Content-type': 'application/json'
     },
     body: JSON.stringify({
-      nombre: nombre,
-      email: email
+      producto: producto,
+      precio: precio
     })
   })
     .then(resposta => {
@@ -70,10 +70,10 @@ const actualizaClientes = (id, nombre, email) => {
     })
 }
 
-export const clienteService = {
-  listaClientes,
-  criaCliente,
-  removeCliente,
+export const productosService = {
+  listarProductos,
+  crearProductos,
+  eliminarProductos,
   detalhaCliente,
-  actualizaClientes
+  actualizarProductos
 }
