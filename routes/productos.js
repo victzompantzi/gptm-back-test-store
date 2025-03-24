@@ -34,7 +34,7 @@ router.put('/:id', asyncHandler(async (req, res) => {
   }
 }));
 
-// Eliminar un cliente
+// Eliminar un producto
 router.delete('/:id', asyncHandler(async (req, res) => {
   const deleted = await res.app.get(PRODUCTO_SERVICE).deleteById(req.params.id);
   res.status(deleted.count == 1 ? 204 : 404).end();

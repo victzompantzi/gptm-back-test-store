@@ -1,36 +1,39 @@
-import { productosService } from '../service/producto-service.js'
-
+import { productosService } from "../service/producto-service.js";
 
 (async () => {
-  const pegaURL = new URL(window.location)
+  const pegaURL = new URL(window.location);
 
-  const id = pegaURL.searchParams.get('id')
+  const id = pegaURL.searchParams.get("id");
 
-  const inputProducto = document.querySelector('[data-nombre]')
-  const inputPrecio = document.querySelector('[data-precio]')
+  const inputProducto = document.querySelector("[data-producto]");
+  const inputPrecio = document.querySelector("[data-precio]");
+  const inputCantidad = document.querySelector("[data-cantidad]");
+
   try {
-    const datos = await productosService.detalhaCliente(id)
-    inputProducto.value = datos.producto
-    inputPrecio.value = datos.precio
+    const datos = await productosService.detallarProductos(id);
+    inputProducto.value = datos.producto;
+    inputPrecio.value = datos.precio;
+    inputCantidad.value = datos.cantidad;
+  } catch (error) {
+    console.log(error);
+    window.location.href = "../vistas/error.html";
   }
-  catch (error) {
-    console.log(error)
-    window.location.href = "../vistas/error.html"
-  }
 
+  const formulario = document.querySelector("[data-form]");
 
-  const formulario = document.querySelector('[data-form]')
-
-
-  formulario.addEventListener('submit', async (evento) => {
-    evento.preventDefault()
+  formulario.addEventListener("submit", async (evento) => {
+    evento.preventDefault();
     try {
-      await productosService.actualizarProductos(id, inputProducto.value, inputPrecio.value)
-      window.location.href = "../vistas/edicion_concluida.html"
+      await productosService.actualizarProductos(
+        id,
+        inputProducto.value,
+        inputPrecio.value,
+        inputCantidad.value
+      );
+      window.location.href = "../vistas/edicion_concluida.html";
+    } catch (error) {
+      console.log(error);
+      window.location.href = "../vistas/error.html";
     }
-    catch (error) {
-      console.log(error)
-      window.location.href = "../vistas/error.html"
-    }
-  })
-})()
+  });
+})();

@@ -62,20 +62,20 @@ module.exports = class productosService {
     return result;
   }
 
-  async getById(clienteId) {
-    let connection, cliente, result;
+  async getById(productoId) {
+    let connection, producto, result;
 
     try {
       connection = await oracledb.getConnection();
 
       const soda = connection.getSodaDatabase();
       const clientesCollection = await soda.createCollection(PRODUCTOS_COLLECTION);
-      cliente = await clientesCollection.find().key(clienteId).getOne();
+      producto = await clientesCollection.find().key(productoId).getOne();
       result = {
-        id: cliente.key,
-        createdOn: cliente.createdOn,
-        lastModified: cliente.lastModified,
-        ...cliente.getContent(),
+        id: producto.key,
+        createdOn: producto.createdOn,
+        lastModified: producto.lastModified,
+        ...producto.getContent(),
       };
 
     } catch (err) {
@@ -128,18 +128,18 @@ module.exports = class productosService {
     return result;
   }
 
-  async update(id, cliente) {
+  async update(id, producto) {
     let connection, result;
 
     try {
       connection = await oracledb.getConnection();
       const soda = connection.getSodaDatabase();
       const productosCollection = await soda.createCollection(PRODUCTOS_COLLECTION);
-      cliente = await productosCollection.find().key(id).replaceOneAndGet(cliente);
+      producto = await productosCollection.find().key(id).replaceOneAndGet(producto);
       result = {
-        id: cliente.key,
-        createdOn: cliente.createdOn,
-        lastModified: cliente.lastModified,
+        id: producto.key,
+        createdOn: producto.createdOn,
+        lastModified: producto.lastModified,
       };
     } catch (err) {
       console.error(err);
@@ -157,7 +157,7 @@ module.exports = class productosService {
     return result;
   }
 
-  async deleteById(clienteId) {
+  async deleteById(productoId) {
     let connection;
     let removed = false;
 
@@ -166,7 +166,7 @@ module.exports = class productosService {
 
       const soda = connection.getSodaDatabase();
       const productosCollection = await soda.createCollection(PRODUCTOS_COLLECTION);
-      removed = await productosCollection.find().key(clienteId).remove();
+      removed = await productosCollection.find().key(productoId).remove();
 
     } catch (err) {
       console.error(err);

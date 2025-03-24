@@ -1,79 +1,76 @@
-const BASE_PATH = '/productos'
+const BASE_PATH = "/productos";
 
 const listarProductos = () => {
-  return fetch(`${BASE_PATH}`)
-    .then(resposta => {
-      if (resposta.ok) {
-        return resposta.json()
-      }
-      throw new Error('Ocurrio in error')
-    })
-}
+  return fetch(`${BASE_PATH}`).then((resposta) => {
+    if (resposta.ok) {
+      return resposta.json();
+    }
+    throw new Error("Ocurrio in error");
+  });
+};
 
-const crearProductos = (producto, precio) => {
+const crearProductos = (producto, precio, cantidad) => {
   return fetch(`${BASE_PATH}`, {
-    method: 'POST',
+    method: "POST",
     headers: {
-      'Content-Type': 'application/json'
+      "Content-Type": "application/json",
     },
     body: JSON.stringify({
       producto: producto,
-      precio: precio
-    })
-  })
-    .then(resposta => {
-      if (resposta.ok) {
-        return resposta.body
-      }
-      throw new Error('Ocurrio in error')
-    })
-}
+      precio: precio,
+      cantidad: cantidad,
+    }),
+  }).then((resposta) => {
+    if (resposta.ok) {
+      return resposta.body;
+    }
+    throw new Error("Ocurrio in error");
+  });
+};
 
 const eliminarProductos = (id) => {
   return fetch(`${BASE_PATH}/${id}`, {
-    method: 'DELETE'
-  })
-    .then(resposta => {
-      if (!resposta.ok) {
-        throw new Error('Ocurrio in error')
-      }
-    })
-}
+    method: "DELETE",
+  }).then((resposta) => {
+    if (!resposta.ok) {
+      throw new Error("Ocurrio in error");
+    }
+  });
+};
 
-const detalhaCliente = (id) => {
-  return fetch(`${BASE_PATH}/${id}`)
-    .then(resposta => {
-      if (resposta.ok) {
-        return resposta.json()
-      }
+const detallarProductos = (id) => {
+  return fetch(`${BASE_PATH}/${id}`).then((resposta) => {
+    if (resposta.ok) {
+      return resposta.json();
+    }
 
-      throw new Error('Ocurrio in error')
-    })
-}
+    throw new Error("Ocurrio in error");
+  });
+};
 
-const actualizarProductos = (id, producto, precio) => {
+const actualizarProductos = (id, producto, precio, cantidad) => {
   return fetch(`${BASE_PATH}/${id}`, {
-    method: 'PUT',
+    method: "PUT",
     headers: {
-      'Content-type': 'application/json'
+      "Content-type": "application/json",
     },
     body: JSON.stringify({
       producto: producto,
-      precio: precio
-    })
-  })
-    .then(resposta => {
-      if (resposta.ok) {
-        return resposta.json()
-      }
-      throw new Error('Ocurrio in error')
-    })
-}
+      precio: precio,
+      cantidad: cantidad,
+    }),
+  }).then((resposta) => {
+    if (resposta.ok) {
+      return resposta.json();
+    }
+    throw new Error("Ocurrio in error");
+  });
+};
 
 export const productosService = {
   listarProductos,
   crearProductos,
   eliminarProductos,
-  detalhaCliente,
-  actualizarProductos
-}
+  detallarProductos,
+  actualizarProductos,
+};

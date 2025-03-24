@@ -8,7 +8,7 @@ Environment="DB_PASSWORD=Doguito12345"
 Environment="CONNECT_STRING=doguitodb_high"
 Type=Simple
 User=opc
-ExecStart=/usr/bin/node /home/opc/1911-OCI2-doguito-app/bin/www
+ExecStart=/usr/bin/node /home/opc/gptm-test-shop/bin/www
 Restart=on-failure
 
 [Install]

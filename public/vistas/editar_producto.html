@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Vicomm Shop | Actualizar producto</title>
+    <title>GPTM Test Store | Actualizar producto</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
@@ -48,7 +48,7 @@
               type="text"
               placeholder="Nombre"
               required
-              data-nombre
+              data-producto
             />
             <label class="input-label" for="nombre">Nombre</label>
             <span class="input-mensagem-error">Campo requerido</span>
@@ -66,6 +66,21 @@
               data-precio
             />
             <label class="input-label" for="price">Precio</label>
+            <span class="input-mensagem-error">Campo requerido</span>
+          </div>
+          <div class="input-container">
+            <input
+              name="cantidad"
+              id="cantidad"
+              class="input"
+              type="number"
+              placeholder="Cantidad"
+              step="1"
+              min="0"
+              required
+              data-cantidad
+            />
+            <label class="input-label" for="cantidad">Cantidad</label>
             <span class="input-mensagem-error">Campo requerido</span>
           </div>
           <button type="submit" class="boton">Actualizar</button>
