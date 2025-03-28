@@ -1,8 +1,0 @@
-POST https://sandbox-tokener.blumonpay.net/oauth/token
-content-Type: application/json                                      
-
-{
-    "grant_type": "password",
-    "username": "david.pechc@yucatan.gob.mx",
-    "password": "21ab7a4e3be21a78a27aca3b412dee48bd4bcfbc729342d4b9a9433e03461f86"
-}
