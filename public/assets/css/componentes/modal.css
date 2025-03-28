@@ -1,4 +1,4 @@
-.modal {
+/* .modal {
   background-color: var(--cor-contraste-claro);
   border-radius: 10px;
   padding: 1.75rem;
@@ -55,4 +55,4 @@
 .modal--fechado {
   left: -100vw;
   transition: 0.25s;
-}
+} */

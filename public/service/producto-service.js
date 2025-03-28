@@ -67,6 +67,13 @@ const actualizarProductos = (id, producto, precio, cantidad) => {
   });
 };
 
+// TODO conts pagarProductos 
+
+const openModal = function () {
+  modal.classList.remove("hidden");
+  overlay.classList.remove("hidden");
+};
+
 export const productosService = {
   listarProductos,
   crearProductos,

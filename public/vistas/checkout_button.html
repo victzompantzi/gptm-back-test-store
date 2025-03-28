@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="../assets/css/base/base.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/cabecera.css" />
+    <link rel="stylesheet" href="../assets/css/productos.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/tabla.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/boton.css" />
+    <link rel="stylesheet" href="../assets/css/componentes/modal.css" />
+    <script
+      src="https://cdn.gpvicomm.com/ccapi/sdk/payment_checkout_3.1.0.min.js"
+      charset="UTF-8"
+    ></script>
+    <style>
+      .modal {
+        display: none; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        padding-top: 100px; /* Location of the box */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0, 0, 0); /* Fallback color */
+        background-color: rgba(0, 0, 0, 0.4); /* Black w/ opacity */
+      }
+
+      .modal-content {
+        background-color: #fefefe;
+        margin: auto;
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%;
+      }
+
+      .close {
+        color: #aaaaaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+      }
+
+      .close:hover,
+      .close:focus {
+        color: #000;
+        text-decoration: none;
+        cursor: pointer;
+      }
+    </style>
+  </head>
+  <body>
+    <header class="cabecera container">
+      <img
+        src="../assets/img/doguitoadm.svg"
+        alt="Logotipo Doguito"
+        class="cabecera__logo"
+      />
+      <nav>
+        <ul class="cabecera__lista-navegacao">
+          <li class="cabecera__link">
+            <a href="/vistas/productos.html">Tienda</a>
+          </li>
+          <li class="cabecera__link">
+            <a href="/vistas/checkout_button.html">Carrito</a>
+          </li>
+          <li class="cabecera__link"><a href="#">Perfil</a></li>
+        </ul>
+      </nav>
+    </header>
+    <main class="productos-container">
+      <!-- Trigger/Open The Modal -->
+      <button id="myBtn">Open Modal</button>
+      <!-- The Modal -->
+      <div id="myModal" class="modal">
+        <!-- Modal content -->
+        <div class="modal-content">
+          <span class="close">&times;</span>
+          <p>Some text in the Modal..</p>
+        </div>
+      </div>
+      <section id="checkout" class="stickem-container">
+        <div class='section-content'><h2 class='page-header'><a href='#checkout' class='header-link'><i class='fa fa-link'></i></a>Checkout</h2><p><script src="https://cdn.gpvicomm.com/ccapi/sdk/payment_checkout_3.1.0.min.js"></script></p>
+      <p><button class="js-payment-checkout" id="paymentez-checkout">Pagar con Tarjeta</button></p>
+      <p><code id="response"></code></p>
+    </main>
+
+    <script type="module" , src="../service/modal-service.js"></script>
+    <script>
+      let paymentCheckout = new PaymentCheckout.modal({
+        env_mode: "stg", // `prod`, `stg`: to change environment. Default is `stg`
+        onOpen: function () {
+          console.log("modal open");
+        },
+        onClose: function () {
+          console.log("modal closed");
+        },
+        onResponse: function (response) {
+          // The callback to invoke when the Checkout process is completed
+
+          /*
+            In Case of an error, this will be the response.
+            response = {
+              "error": {
+                "type": "Server Error",
+                "help": "Try Again Later",
+                "description": "Sorry, there was a problem loading Checkout."
+              }
+            }
+
+            When the User completes all the Flow in the Checkout, this will be the response.
+            response = {
+              "transaction":{
+                  "status": "success", // success or failure
+                  "id": "PR-10002", // transaction_id
+                  "status_detail": 3 // for the status detail please refer to: https://developers.gpvicomm.com/api/#detalle-de-los-estados
+              }
+            }
+          */
+          console.log("modal response");
+          document.getElementById("response").innerHTML =
+            JSON.stringify(response);
+        },
+      });
+
+      let btnOpenCheckout = document.querySelector(".js-payment-checkout");
+      btnOpenCheckout.addEventListener("click", function () {
+        paymentCheckout.open({
+          reference:
+            "b'VkNNLUJMVU1PTlBBWS1TVEctTVhOLVNFUlZFUjsxNzQzMDIyNzY4OzljNmJjMzVlMzdlOWViZGM0MmE5YTk5YzhkYTE2MzY1MDYxZjhiYTY2YTJhMjY2M2U4YTVlZWMwNjE0OWU1MzY='", // reference received for Payment Gateway
+        });
+      });
+
+      window.addEventListener("popstate", function () {
+        paymentCheckout.close();
+      });
+    </script>
+  </body>
+</html>

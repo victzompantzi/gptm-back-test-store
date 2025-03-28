@@ -8,7 +8,7 @@ const logger = require("morgan");
 
 const indexRouter = require("./routes/index");
 const productosRouter = require("./routes/productos");
-const productosService = require("./services/productos-service");
+const productosService = require("./services/db-service");
 
 const app = express();
 

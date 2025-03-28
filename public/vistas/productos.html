@@ -18,6 +18,10 @@
     <link rel="stylesheet" href="../assets/css/componentes/tabla.css" />
     <link rel="stylesheet" href="../assets/css/componentes/boton.css" />
     <link rel="stylesheet" href="../assets/css/componentes/modal.css" />
+    <script
+      src="https://cdn.gpvicomm.com/ccapi/sdk/payment_checkout_3.1.0.min.js"
+      charset="UTF-8"
+    ></script>
   </head>
   <body>
     <header class="cabecera container">
@@ -29,7 +33,10 @@
       <nav>
         <ul class="cabecera__lista-navegacao">
           <li class="cabecera__link">
-            <a href="/vistas/productos.html">Carrito</a>
+            <a href="/vistas/productos.html">Tienda</a>
+          </li>
+          <li class="cabecera__link">
+            <a href="/vistas/checkout_button.html">Carrito</a>
           </li>
           <li class="cabecera__link"><a href="#">Perfil</a></li>
         </ul>
@@ -54,8 +61,8 @@
         </thead>
         <tbody data-tabla></tbody>
       </table>
-      <div class="modal-container modal--fechado">
-        <article class="modal">
+      <!-- <div class="modal-container modal--fechado">
+        <section class="modal">
           <h2 class="modal__titulo">Eliminar</h2>
           <button class="modal__fechar">X</button>
           <p class="modal__texto">Seguro?</p>
@@ -65,8 +72,8 @@
             </button>
             <button class="modal__boton">Cancelar</button>
           </div>
-        </article>
-      </div>
+        </section>
+      </div> -->
     </main>
     <script
       type="module"

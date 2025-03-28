@@ -26,16 +26,16 @@ body {
   flex-direction: column;
 }
 
-@media(min-width: 800px) {
+@media (min-width: 800px) {
   .container {
     padding-right: 2.5rem;
     padding-left: 2.5rem;
   }
 }
 
-@media(min-width: 1200px) {
+@media (min-width: 1200px) {
   .container {
-    padding-left: calc((100vw - 900px)/2);
-    padding-right: calc((100vw - 900px)/2);
+    padding-left: calc((100vw - 900px) / 2);
+    padding-right: calc((100vw - 900px) / 2);
   }
 }
