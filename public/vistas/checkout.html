@@ -17,26 +17,23 @@
     <link rel="stylesheet" href="../assets/css/componentes/boton.css" />
     <link rel="stylesheet" href="../assets/css/componentes/modal.css" />
     <!-- <link
-      href="https://cdn.gpvicomm.com/ccapi/sdk/payment_stable.min.css"
+      id="paymentCheckoutCss"
       rel="stylesheet"
       type="text/css"
+      href="https://cdn.gpvicomm.com/ccapi/sdk/payment_checkout_stable.min.css"
+      media="all"
     /> -->
-    <!-- <script
-      type="module"
-      src="https://code.jquery.com/jquery-1.11.3.min.js"
-      charset="UTF-8"
-    ></script> -->
-    <!-- <script
-      type="module"
-      src="https://cdn.gpvicomm.com/ccapi/sdk/payment_stable.min.js"
-      charset="UTF-8"
-    ></script> -->
+    <!-- Add jQuery library -->
     <script
-      src="https://cdn.gpvicomm.com/ccapi/sdk/payment_checkout_3.1.0.min.js"
-      charset="UTF-8"
+      src="https://code.jquery.com/jquery-3.7.1.js"
+      integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4="
+      crossorigin="anonymous"
     ></script>
-    <!-- <script type="module" src="../service/modal-service.js"></script> -->
-    <!-- <script type="module" src="../service/payment-service.js"></script> -->
+    <!-- Add jsSHA library -->
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/jsSHA/3.2.0/sha.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
   <body>
     <header class="cabecera container">
@@ -58,10 +55,25 @@
       </nav>
     </header>
     <main class="productos-container">
-      <button class="js-payment-checkout">Pay with Card</button>
-      <div id="response"></div>
+      <!-- <div class="payment-checkout-modal" style="display: none">
+        <button class="payment-checkout-modal__close">
+          <span class="payment-checkout-modal__closeIcon">x</span
+          ><span class="payment-checkout-modal__closeLabel">Cerrar</span>
+        </button>
+        <div class="payment-checkout-modal-box">
+          <div class="payment-checkout-modal-box__content"></div>
+        </div>
+      </div> -->
+      <div>
+        <button class="js-payment-checkout">Pay with Card</button>
+      </div>
+      <div class="response" id="response"></div>
     </main>
-    <script src="checkout_button.js" charset="UTF-8">
-    </script>
+    <script
+      type="text/javascript"
+      src="https://cdn.gpvicomm.com/ccapi/sdk/payment_checkout_stable.min.js?ver=1.0.0"
+      charset="UTF-8"
+    ></script>
+    <script src="../../services/checkout-service.js" charset="UTF-8"></script>
   </body>
 </html>

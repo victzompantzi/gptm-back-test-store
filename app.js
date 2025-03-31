@@ -5,8 +5,10 @@ const cookieParser = require("cookie-parser");
 const bodyParser = require("body-parser");
 const cors = require("cors");
 const logger = require("morgan");
+const session = require("express-session");
 
 const indexRouter = require("./routes/index");
+const loginRouter = require("./routes/login");
 const productosRouter = require("./routes/productos");
 const productosService = require("./services/db-service");
 
@@ -23,9 +25,17 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(bodyParser.json());
 app.use(express.static(path.join(__dirname, "public")));
+app.use(
+  session({
+    secret: "mySecret",
+    resave: false,
+    saveUninitialized: true,
+  })
+);
 
 app.use("/", indexRouter);
 app.use("/productos", productosRouter);
+app.use("/login", loginRouter);
 
 // catch 404 and forward to error handler
 app.use((req, res, next) => {
