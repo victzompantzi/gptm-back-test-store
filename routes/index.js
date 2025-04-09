@@ -1,10 +1,11 @@
-var express = require('express');
-require('dotenv').config();
+var express = require("express");
+require("dotenv").config();
 var router = express.Router();
+const { ensureAuthenticated } = require("../routes/login");
 
 // Home
-router.get('/', (req, res) => {
-  res.render('index', { title: 'Doguito API' });
+router.get("/", ensureAuthenticated, (req, res) => {
+  res.render("index", { title: "Doguito API" });
 });
 
 module.exports = router;

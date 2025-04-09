@@ -1,9 +1,9 @@
 const BASE_PATH = "/productos";
 
 const listarProductos = () => {
-  return fetch(`${BASE_PATH}`).then((resposta) => {
-    if (resposta.ok) {
-      return resposta.json();
+  return fetch(`${BASE_PATH}`, { credentials: "include" }).then((response) => {
+    if (response.ok) {
+      return response.json();
     }
     throw new Error("Ocurrio in error");
   });
@@ -15,14 +15,15 @@ const crearProductos = (producto, precio, cantidad) => {
     headers: {
       "Content-Type": "application/json",
     },
+    credentials: "include",
     body: JSON.stringify({
       producto: producto,
       precio: precio,
       cantidad: cantidad,
     }),
-  }).then((resposta) => {
-    if (resposta.ok) {
-      return resposta.body;
+  }).then((response) => {
+    if (response.ok) {
+      return response.body;
     }
     throw new Error("Ocurrio in error");
   });
@@ -31,21 +32,23 @@ const crearProductos = (producto, precio, cantidad) => {
 const eliminarProductos = (id) => {
   return fetch(`${BASE_PATH}/${id}`, {
     method: "DELETE",
-  }).then((resposta) => {
-    if (!resposta.ok) {
+    credentials: "include",
+  }).then((response) => {
+    if (!response.ok) {
       throw new Error("Ocurrio in error");
     }
   });
 };
 
 const detallarProductos = (id) => {
-  return fetch(`${BASE_PATH}/${id}`).then((resposta) => {
-    if (resposta.ok) {
-      return resposta.json();
+  return fetch(`${BASE_PATH}/${id}`, { credentials: "include" }).then(
+    (response) => {
+      if (response.ok) {
+        return response.json();
+      }
+      throw new Error("Ocurrio in error");
     }
-
-    throw new Error("Ocurrio in error");
-  });
+  );
 };
 
 const actualizarProductos = (id, producto, precio, cantidad) => {
@@ -54,24 +57,18 @@ const actualizarProductos = (id, producto, precio, cantidad) => {
     headers: {
       "Content-type": "application/json",
     },
+    credentials: "include",
     body: JSON.stringify({
       producto: producto,
       precio: precio,
       cantidad: cantidad,
     }),
-  }).then((resposta) => {
-    if (resposta.ok) {
-      return resposta.json();
+  }).then((response) => {
+    if (response.ok) {
+      return response.json();
     }
     throw new Error("Ocurrio in error");
   });
-};
-
-// TODO conts pagarProductos 
-
-const openModal = function () {
-  modal.classList.remove("hidden");
-  overlay.classList.remove("hidden");
 };
 
 export const productosService = {

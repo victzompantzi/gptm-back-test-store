@@ -11,8 +11,8 @@ const uniq_token_hash = crypto
   .update(uniq_token_string, "utf8")
   .digest("hex");
 const tokenString = `${server_application_code};${unix_timestamp};${uniq_token_hash}`;
-const auth_token = Buffer.from(tokenString, "utf8").toString("base64");
+const token = Buffer.from(tokenString, "utf8").toString("base64");
 
 console.log("Content-Type: application/json\n");
-console.log(JSON.stringify({ auth_token }));
+console.log(JSON.stringify({ token }));
 // ...existing code...

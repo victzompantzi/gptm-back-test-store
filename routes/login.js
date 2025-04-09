@@ -1,21 +1,20 @@
 const express = require("express");
-require('dotenv').config();
 const router = express.Router();
+const loginController = require("../controllers/loginController");
 
-// GET login form
-router.get("/", (req, res) => {
-  res.render("login", { error: null });
-});
+// Display login page
+router.get("/", loginController.showLoginPage);
 
-// POST login data
-router.post("/", (req, res) => {
-  const { username, password } = req.body;
-  // Simple static credential check
-  if (username === "admin" && password === "secret") {
-    req.session.user = username;
-    return res.redirect("/");
+// Process login form
+router.post("/", loginController.handleLogin);
+
+// Middleware to protect routes by ensuring the user is authenticated
+function ensureAuthenticated(req, res, next) {
+  if (!req.cookies || !req.cookies.token) {
+    return res.redirect("/login");
   }
-  res.render("login", { error: "Invalid credentials" });
-});
+  next();
+}
 
 module.exports = router;
+module.exports.ensureAuthenticated = ensureAuthenticated;

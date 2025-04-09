@@ -16,7 +16,7 @@ import { productosService } from "../service/producto-service.js";
     inputCantidad.value = datos.cantidad;
   } catch (error) {
     console.log(error);
-    window.location.href = "../vistas/error.html";
+    window.location.href = "../views/error.html";
   }
 
   const formulario = document.querySelector("[data-form]");
@@ -30,10 +30,10 @@ import { productosService } from "../service/producto-service.js";
         inputPrecio.value,
         inputCantidad.value
       );
-      window.location.href = "../vistas/edicion_concluida.html";
+      window.location.href = "../views/edicion_concluida.html";
     } catch (error) {
       console.log(error);
-      window.location.href = "../vistas/error.html";
+      window.location.href = "../views/error.html";
     }
   });
 })();

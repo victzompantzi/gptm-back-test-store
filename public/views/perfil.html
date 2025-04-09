@@ -3,7 +3,7 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPTM Test Store</title>
+    <title>GPTM Test Store | Perfil</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
@@ -14,7 +14,6 @@
     />
     <link rel="stylesheet" href="../assets/css/base/base.css" />
     <link rel="stylesheet" href="../assets/css/componentes/cabecera.css" />
-    <link rel="stylesheet" href="../assets/css/edicion_concluida.css" />
     <link rel="stylesheet" href="../assets/css/componentes/tarjeta.css" />
     <link rel="stylesheet" href="../assets/css/componentes/inputs.css" />
     <link rel="stylesheet" href="../assets/css/componentes/boton.css" />
@@ -29,19 +28,22 @@
       <nav>
         <ul class="cabecera__lista-navegacao">
           <li class="cabecera__link">
-            <a href="/vistas/productos.html">Carrito</a>
+            <a href="/views/productos.html">Tienda</a>
           </li>
-          <li class="cabecera__link"><a href="#">Perfil</a></li>
+          <li class="cabecera__link">
+            <a href="/views/checkout.html">Carrito</a>
+          </li>
+          <li class="cabecera__link">
+            <a href="/views/perfil.html">Perfil</a>
+          </li>
         </ul>
       </nav>
     </header>
-    <main class="container flex flex--coluna flex--centro">
-      <section class="registro-tarjeta tarjeta">
-        <span class="registro-tarjeta__icono-concluido"></span>
-        <h1 class="registro-tarjeta__titulo tarjeta__titulo">
-          Producto editado
-        </h1>
-        <a href="./productos.html" class="boton">Ver lista de productos</a>
+    <main class="container flex flex--centro flex--coluna">
+      <section class="tarjeta registro">
+        <h1 class="tarjeta__titulo">Perfil</h1>
+        <!-- Logout button calling the /logout endpoint -->
+        <a href="/logout" class="boton">Cerrar sesión</a>
       </section>
     </main>
   </body>

@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <!-- ...existing meta tags... -->
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>GPTM Test Store | Login</title>
+    <title>GPTM Test Store</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400&display=swap"
       rel="stylesheet"
@@ -15,14 +14,13 @@
     />
     <link rel="stylesheet" href="../assets/css/base/base.css" />
     <link rel="stylesheet" href="../assets/css/componentes/cabecera.css" />
+    <link rel="stylesheet" href="../assets/css/registro_concluido.css" />
     <link rel="stylesheet" href="../assets/css/componentes/tarjeta.css" />
     <link rel="stylesheet" href="../assets/css/componentes/inputs.css" />
     <link rel="stylesheet" href="../assets/css/componentes/boton.css" />
   </head>
   <body>
-    <% if (typeof error === 'undefined') { var error = null; } %>
     <header class="cabecera container">
-      <!-- ...existing header code... -->
       <img
         src="../assets/img/doguitoadm.svg"
         alt="Logotipo Doguito"
@@ -42,37 +40,13 @@
         </ul>
       </nav>
     </header>
-    <main class="container flex flex--centro flex--coluna">
-      <section class="tarjeta registro">
-        <h1 class="tarjeta__titulo">Login</h1>
-        <% if (error) { %>
-        <p class="input-mensagem-error"><%= error %></p>
-        <% } %>
-        <form action="/login" method="post" class="flex flex--coluna">
-          <div class="input-container">
-            <input
-              type="text"
-              name="username"
-              id="username"
-              class="input"
-              placeholder="Usuario"
-              required
-            />
-            <label class="input-label" for="username">Usuario</label>
-          </div>
-          <div class="input-container">
-            <input
-              type="password"
-              name="password"
-              id="password"
-              class="input"
-              placeholder="Contraseña"
-              required
-            />
-            <label class="input-label" for="password">Contraseña</label>
-          </div>
-          <button type="submit" class="boton">Ingresar</button>
-        </form>
+    <main class="container flex flex--coluna flex--centro">
+      <section class="registro-tarjeta tarjeta">
+        <span class="registro-tarjeta__icono-concluido"></span>
+        <h1 class="registro-tarjeta__titulo tarjeta__titulo">
+          Registro completado!
+        </h1>
+        <a href="./productos.html" class="boton">Ver lista de productos</a>
       </section>
     </main>
   </body>

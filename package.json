@@ -15,10 +15,11 @@
     "ejs": "~2.6.1",
     "express": "~4.16.1",
     "express-async-handler": "^1.2.0",
+    "express-session": "^1.17.3",
     "http-errors": "~1.6.3",
+    "jsonwebtoken": "^9.0.2",
     "morgan": "~1.9.1",
-    "oracledb": "file:node-oracledb",
-    "express-session": "^1.17.3"
+    "oracledb": "file:node-oracledb"
   },
   "devDependencies": {
     "eslint": "^7.32.0",

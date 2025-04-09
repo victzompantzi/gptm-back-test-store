@@ -8,7 +8,7 @@ const crearNuevaLinea = (producto, cantidad, precio, id) => {
                   <td>${precio}</td>
                   <td>
                       <ul class="tabla__botoes-controle">
-                          <li><a href="../vistas/editar_producto.html?id=${id}" class="boton-simple boton-simple--editar">Editar</a></li>
+                          <li><a href="../views/editar_producto.html?id=${id}" class="boton-simple boton-simple--editar">Editar</a></li>
                           <li><button class="boton-simple boton-simple--excluir" type="button">Eliminar</button></li>
                       </ul>
                   </td>
@@ -31,7 +31,7 @@ tabla.addEventListener("click", async (evento) => {
       lineaCliente.remove();
     } catch (error) {
       console.log(error);
-      window.location.href = "../vistas/error.html";
+      window.location.href = "../views/error.html";
     }
   }
 });
@@ -64,7 +64,7 @@ const render = async () => {
     tabla.appendChild(trTotal);
   } catch (error) {
     console.log(error);
-    window.location.href = "../vistas/error.html";
+    window.location.href = "../views/error.html";
   }
 };
 

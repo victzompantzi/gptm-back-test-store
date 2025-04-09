@@ -10,9 +10,9 @@ formulario.addEventListener("submit", async (evento) => {
     const cantidad = evento.target.querySelector("[data-cantidad]").value;
 
     await productosService.crearProductos(producto, precio, cantidad);
-    window.location.href = "../vistas/registro_concluido.html";
+    window.location.href = "../views/registro_concluido.html";
   } catch (error) {
     console.log(error);
-    window.location.href = "../vistas/error.html";
+    window.location.href = "../views/error.html";
   }
 });

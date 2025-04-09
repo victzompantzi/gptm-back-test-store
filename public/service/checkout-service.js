@@ -40,11 +40,11 @@ async function computeAuthToken() {
   }
 }
 
-let auth_token;
+let token;
 computeAuthToken().then((token) => {
-  auth_token = token;
+  token = token;
   console.log("Content-Type: application/json\n");
-  console.log(JSON.stringify({ auth_token }));
+  console.log(JSON.stringify({ token }));
 });
 
 // Refactored initiateCheckout using async/await
@@ -97,10 +97,10 @@ let paymentCheckout = new PaymentCheckout.modal({
 
 let btnOpenCheckout = document.querySelector(".js-payment-checkout");
 btnOpenCheckout.addEventListener("click", async function () {
-  // Ensure auth_token is computed before opening modal
-  if (!auth_token) {
+  // Ensure token is computed before opening modal
+  if (!token) {
     try {
-      auth_token = await computeAuthToken();
+      token = await computeAuthToken();
     } catch (error) {
       console.error("Failed to compute auth token:", error);
       return;
@@ -119,7 +119,7 @@ btnOpenCheckout.addEventListener("click", async function () {
     order_amount: 1500,
     order_vat: 0,
     order_reference: "#234323411",
-    reference: encodeURIComponent(auth_token),
+    reference: encodeURIComponent(token),
   });
   try {
     const checkoutResponse = await initiateCheckout();

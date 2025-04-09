@@ -45,12 +45,14 @@
       <nav>
         <ul class="cabecera__lista-navegacao">
           <li class="cabecera__link">
-            <a href="/vistas/productos.html">Tienda</a>
+            <a href="/views/productos.html">Tienda</a>
           </li>
           <li class="cabecera__link">
-            <a href="/vistas/checkout_button.html">Carrito</a>
+            <a href="/views/checkout.html">Carrito</a>
           </li>
-          <li class="cabecera__link"><a href="#">Perfil</a></li>
+          <li class="cabecera__link">
+            <a href="/views/perfil.html">Perfil</a>
+          </li>
         </ul>
       </nav>
     </header>
@@ -64,6 +66,7 @@
           <div class="payment-checkout-modal-box__content"></div>
         </div>
       </div> -->
+
       <div>
         <button class="js-payment-checkout">Pay with Card</button>
       </div>
@@ -74,6 +77,6 @@
       src="https://cdn.gpvicomm.com/ccapi/sdk/payment_checkout_stable.min.js?ver=1.0.0"
       charset="UTF-8"
     ></script>
-    <script src="../../services/checkout-service.js" charset="UTF-8"></script>
+    <script src="../service/checkout-service.js" charset="UTF-8"></script>
   </body>
 </html>
